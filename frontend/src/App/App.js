@@ -123,7 +123,7 @@ logIn = (email, password) => {
                 <Route path="producktiv/courses" element={<Usercourses/>}/>
                 <Route path="producktiv/videoplay" element={<Videopage/>}/>
                 <Route path="producktiv/add-course" element={<Addcourse/>}/>
-                <Route path="*" element={<Navigate to="/producktiv" replace/>}/>
+                <Route path="*" element={<Navigate to="/producktiv/videos" replace/>}/>
               </Routes>
             </Sidemenu>
           </AppContext.Provider>
