@@ -48,7 +48,7 @@ export const Sidemenu = (props) => {
           </div>
           <div className="logout">
           <div className="logout-icon"><ImExit/></div>
-          <a  onClick={() => props.logOut()}>Logout</a>
+          <p  onClick={() => props.logOut()}>Logout</p>
           </div>
         </div>
       </div>

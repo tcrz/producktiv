@@ -76,12 +76,12 @@ main {
     /* border: 1px solid red */
 }
 
-.logout a{
+.logout p{
     /* align-self: flex-start */
     font-weight: 500;
 }
 
-.logout a:hover{
+.logout p:hover{
     /* align-self: flex-start */
     cursor: pointer;
     /* color: var(--btn-color-primary); */
