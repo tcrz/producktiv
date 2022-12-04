@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/producktiv/static/css/main.522866d2.css",
+    "main.js": "/producktiv/static/js/main.b2a52cb8.js",
+    "static/media/ope.jpg": "/producktiv/static/media/ope.4210481fe8f283f8eb6a.jpg",
+    "static/media/samra.jpg": "/producktiv/static/media/samra.7db5fb1682f91fcebe7b.jpg",
+    "static/media/elearning3.jpg": "/producktiv/static/media/elearning3.0b184ef4f0529d741866.jpg",
+    "static/media/tony.jpg": "/producktiv/static/media/tony.70bc45d7f6d8ca0c4c31.jpg",
+    "static/media/elearning2.jpg": "/producktiv/static/media/elearning2.484b2b85cd628fb609e0.jpg",
+    "static/media/elearning.jpg": "/producktiv/static/media/elearning.9d5b8bc74ad62665051b.jpg",
+    "index.html": "/producktiv/index.html",
+    "main.522866d2.css.map": "/producktiv/static/css/main.522866d2.css.map",
+    "main.b2a52cb8.js.map": "/producktiv/static/js/main.b2a52cb8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.522866d2.css",
+    "static/js/main.b2a52cb8.js"
+  ]
+}
