@@ -76,7 +76,7 @@ logIn = (email, password) => {
       headers: {Authorization: basic}
     })
     .then((response) => {
-      console.log(response)
+      // console.log(response)
       if (!response.ok) {
         this.setErrorCode(response.status)
         throw Error(`${response.status}: ${response.statusText}`)
@@ -90,7 +90,7 @@ logIn = (email, password) => {
       d.setTime(d.getTime() + (1*24*60*60*1000));
       let expires = "expires="+ d.toUTCString();
       document.cookie = "auth_key=" + data.user.token + ";" + expires + ";path=/";
-      console.log(data.user)
+      // console.log(data.user)
       localStorage.setItem('user', JSON.stringify(data.user))
       this.setErrorCode(null)
     })
