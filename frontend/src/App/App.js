@@ -111,19 +111,19 @@ logIn = (email, password) => {
         !user.token ? (
         <LandingPageBody>
           <Routes>
-          <Route path="/login" element={<LandingPage errorCode={errorCode} isLoading={isLoading} logIn={logIn}/>}/>
-          <Route path="*" element={<Navigate to="/login" replace/>}/>
+          <Route path="producktiv/login" element={<LandingPage errorCode={errorCode} isLoading={isLoading} logIn={logIn}/>}/>
+          <Route path="*" element={<Navigate to="producktiv/login" replace/>}/>
           </Routes>
         </LandingPageBody>
         ) : (
           <AppContext.Provider value={{user, resetUser}}>
             <Sidemenu logOut={logOut}>
               <Routes>
-                <Route path="/videos" element={<Coursespage/>}/>
-                <Route path="/courses" element={<Usercourses/>}/>
-                <Route path="/videoplay" element={<Videopage/>}/>
-                <Route path="/add-course" element={<Addcourse/>}/>
-                <Route path="*" element={<Navigate to="/videos" replace/>}/>
+                <Route path="producktiv/videos" element={<Coursespage/>}/>
+                <Route path="producktiv/courses" element={<Usercourses/>}/>
+                <Route path="producktiv/videoplay" element={<Videopage/>}/>
+                <Route path="producktiv/add-course" element={<Addcourse/>}/>
+                <Route path="*" element={<Navigate to="/producktiv" replace/>}/>
               </Routes>
             </Sidemenu>
           </AppContext.Provider>
