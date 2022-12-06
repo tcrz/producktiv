@@ -24,11 +24,12 @@
     align-items: center;
     gap: .2em;
     border: 1px solid var(--text-color);
-    padding: .4em .5em;
+    padding: .2em .6em;
     border-radius: 1em;
     text-decoration: none;
-    font-weight: 500;
-    color: var(--text-color)
+    font-weight: 400;
+    color: var(--text-color);
+    font-size: .9em
 }
 
 /* .categories a:focus {
@@ -62,9 +63,8 @@
     /* place-content: center; */
     /* margin-bottom: .5em; */
     display: grid;
-    grid-template-columns: 100px 100px 100px;
-    grid-gap: 10.6em;
-    row-gap: .8em;
+    grid-template-columns:  repeat(3, 1fr);
+    row-gap: 1.5em;
     animation-duration: 0.3s;
     animation-name: slidein;
   }

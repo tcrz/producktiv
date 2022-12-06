@@ -5,15 +5,17 @@ import { ImBin } from "react-icons/im";
 
 export const Videocard = (props) => {
   const data = props.selectVideo(props.id)
+  const thumbnail = props.videoThumbnail.split("hqdefault.jpg")[0] + "maxresdefault.jpg"
   return (
-    
     <article  className="video">
       <Link to="/videoplay" state={{videoData: data}}
      className="videoplay">
-      <img src={props.videoThumbnail} alt="video-thumbnail"/>
+      <div style={{overflow:"hidden"}}>
+      <img className="thumbnail" src={thumbnail} alt="video-thumbnail"/>
+      </div>
       <div  className="details">
         <div  className="video-name">
-          <h3>{props.videoName}</h3>
+          <h4>{props.videoName}</h4>
         </div>
         <div  className="description">
           <p>{props.description}</p>

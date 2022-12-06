@@ -5,20 +5,15 @@
 
 .video {
     width: 13.5em;
-    border: 1px solid #d4cece;
+    /* border: 1px solid #d4cece; */
     border-radius: 5px;
     background: white;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-    border-bottom: 2px solid var(--text-color);
+    /* border-bottom: 2px solid var(--text-color); */
     position: relative;
     height: 100%;
     animation-duration: 0.3s;
     animation-name: slidein;
-  }
-  
-  .video:hover {
-    cursor: pointer;
-    border: 1px solid var(--text-color);
   }
   
   
@@ -27,6 +22,13 @@
     height: 200px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
+    transition: .3s;
+  }
+
+  .video:hover  .thumbnail{
+    /* background-size: cover; */
+    transform: scale(1.05);
+    /* width: 110% */
   }
   
   .content {
@@ -45,24 +47,33 @@
   .details .description {
     /* border: 1px solid blue; */
     /* color: red; */
-    margin: 10px 0;
-    height: 60px
+    /* margin: 10px 0; */
+    height: 55px
   }
   
-  .details .description p {
+
+  .details .description p, .video-name h4 {
     text-overflow:ellipsis;
     overflow:hidden;
     display: -webkit-box !important;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     white-space: normal;
+    
+  }
+
+  .video-name h4 {
+    -webkit-line-clamp: 1;
+  }
+
+  .details .description p {
     font-weight: 400;
-    font-size:.8em
+    font-size:.7em
   }
 
   .author p, .delete p {
-    font-weight: 300;
-    font-size:.8em
+    font-weight: 400;
+    font-size:.7em
   }
   
   .delete p:hover {
