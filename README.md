@@ -1,6 +1,6 @@
 # Pro:duck:tiv
-The objective of Producktiv is to bring together people from different fields who would like to collaborate and share ideas with other people. This helps you as a tutor, to share useful resources as well as get your content out there and as a student, to learn various skills without any cost to you.  
-Features:
+The objective of Producktiv is to bring together people from different fields who would like to collaborate and share ideas with other people. This helps you as a tutor, to share useful resources as well as get your content out there and as a student, to learn various skills without any cost to you. [Live demo](https://producktiv.netlify.app/)
+### Features:
 - Display all submitted videos/courses
 - Add videos/courses
 - Delete submitted videos/courses
