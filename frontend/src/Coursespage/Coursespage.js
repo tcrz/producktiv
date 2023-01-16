@@ -1,12 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Coursespage.css";
 import { AppContext } from "../App/AppContext";
-import {
-  ImStatsDots,
-  ImPencil2,
-  ImEmbed2,
-  ImAccessibility,
-} from "react-icons/im";
 import { Videocard } from "../Videocard/Videocard";
 import { Loader } from "../Loader/Loader";
 import { CategoryOptions } from "./CategoryOptions";
@@ -17,7 +11,7 @@ export const Coursespage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState("All");
-  console.log(selectedCategory)
+  // console.log(selectedCategory)
 
   const getVideos = (resource) => {
     const controller = new AbortController();
@@ -73,6 +67,7 @@ export const Coursespage = () => {
     const controller = fetchCategoryVideos(selectedCategory);
     // console.log("in here")
     return () => controller.abort();
+    // eslint-disable-next-line
   }, [selectedCategory]);
 
   const selectVideo = (id) => {

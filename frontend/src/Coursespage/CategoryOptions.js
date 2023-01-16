@@ -15,7 +15,7 @@ export const CategoryOptions = ({ setSelectedCategory }) => {
     { name: "Business", icon: <ImStatsDots/>},
     { name: "Lifestyle", icon: <ImAccessibility/>}
   ];
-  const [categories, setCategories] = useState(options);
+  const [categories] = useState(options);
   // const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1023px)" });
   // console.log(isTabletOrMobile);
   return (

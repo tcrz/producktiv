@@ -2,12 +2,12 @@ import React from 'react';
 import { ImBooks, ImBook, ImFolderPlus, ImExit } from "react-icons/im";
 import { NavLink } from 'react-router-dom'
 import './Sidemenu.css';
-import { AppContext } from '../App/AppContext';
+// import { AppContext } from '../App/AppContext';
 import { ReactComponent as Logo } from '../logo/producktiv.svg'
 
 
 export const Sidemenu = (props) => {
-  const data = React.useContext(AppContext)
+  // const data = React.useContext(AppContext)
   const menuItems = [
     {
       path:"/videos",
@@ -31,8 +31,6 @@ export const Sidemenu = (props) => {
       <div className="sidemenu-box">
         <div className="sidemenu">
           <div className="sidemenu-heading">
-            {/* <h1>PRODUCKTIV</h1> */}
-            {/* <h2>Producktiv</h2> */}
             <Logo className='logo'/>
             {/* <img src={logo} style={{width: "90px"}}/> */}
             {/* <div className="user-details">
