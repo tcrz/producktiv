@@ -1,6 +1,6 @@
 import React from "react";
 import './AppLayout.css';
-import { AppContext } from "../App/AppContext";
+// import { AppContext } from "../App/AppContext";
 import { Sidemenu } from "../Sidemenu/Sidemenu";
 
 export const AppLayout = (props) => {
