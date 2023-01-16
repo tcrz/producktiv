@@ -4,7 +4,7 @@ import { AppContext } from "../App/AppContext";
 import { Sidemenu } from "../Sidemenu/Sidemenu";
 
 export const AppLayout = (props) => {
-  const data = React.useContext(AppContext);
+  // const data = React.useContext(AppContext);
   return (
     <div className="container">
       <Sidemenu logOut={props.logOut}/>
