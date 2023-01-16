@@ -1,37 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Loader } from '../Loader/Loader'
-import './Login.css'
+import { Form } from '../Signup/Form'
 
-export class Login extends React.Component {
-  constructor(props){
-    super(props)
-    this.state = {
-        email: "",
-        password: "",
-        isLoading: false,
-        loginSuccess: null
-    }
+export const Login = (props) => {
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const loadingText = "Logging in..."
+
+  const handleChangeEmail = (event) => {
+    setEmail(event.target.value)
   }
 
-
-  handleChangeEmail = (event) => {
-    this.setState({email: event.target.value})
+  const handleChangePassword = (event) => {
+    setPassword(event.target.value)
   }
 
-  handleChangePassword = (event) => {
-    this.setState({password: event.target.value})
-  }
-
-  handleLoginSubmit = (event) => {
+  const handleLoginSubmit = (event) => {
     event.preventDefault()
-    this.props.logIn(this.state.email, this.state.password)
+    props.logIn(email, password)
   }
-  render() {
-    // console.log(this.props)
-    const {errorCode} = this.props
-    const subTextPrompt = (errorCode) => {
-      if (errorCode !== null) {
-        if (errorCode === 401) {
+  
+  const statusCodeCheck = (code) => {
+      if (code !== null) {
+        if (code === 401) {
           return <p style={{color:"red"}}>Invalid username or password</p>
         } else {
           return <p style={{color:"red"}}>Sorry, an error occured! Try again. </p>
@@ -40,31 +31,20 @@ export class Login extends React.Component {
         return <p>Log in to your Producktiv account</p>
       }
     }
+  
+  const statusCodeText = statusCodeCheck(props.statusCode)
+    
     return (
-      (this.props.isLoading ? <Loader loadingText={"Logging in..."}/> :
-      <form onSubmit={this.handleLoginSubmit}>
-      <div className="login-box">
-        <div className="login-heading">
-          <h1>LOGIN</h1>
-          {subTextPrompt(errorCode)}
-        </div>
-        <div className="login-details">
-          <div className="email-box">
-            <label><span>Email:</span><br />
-            <input type="email" id="email" placeholder="example@duc.tiv" value={this.state.email} onChange={this.handleChangeEmail} required/>
-            </label>
-          </div>
-          <div className="password-box">
-            <label><span>Password:</span><br />
-            <input type="password" id="password" placeholder="password" value={this.state.password} onChange={this.handleChangePassword} required/>
-            </label>
-          </div>
-          <div className="submit-btn">
-            <input type="submit" id="submit" value="Log In"/>
-          </div>
-        </div>  
-      </div>
+      (props.isLoading ? <Loader loadingText={loadingText}/> :
+      <form onSubmit={handleLoginSubmit}>
+         <Form
+          formType="Log In"
+          email={email} 
+          password={password}
+          handleChangeEmail={handleChangeEmail}
+          handleChangePassword={handleChangePassword}
+          statusCodeText={statusCodeText}
+        />
       </form>)
     )
-  }
 }

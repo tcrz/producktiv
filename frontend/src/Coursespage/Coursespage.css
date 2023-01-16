@@ -32,50 +32,41 @@
     font-size: .9em
 }
 
-/* .categories a:focus {
-    background: var(--text-color);
-    color: var(--btn-color-primary)
-}
-
-.categories a:visited {
-    color: none
-} */
-
 .categories label:hover {
     cursor:pointer
 }
 
-#all, #programming, #art, #business, #lifestyle{
+.categories div > input {
     display: none
 }
 
-#all:checked + .selected,
-#programming:checked + .selected,
-#art:checked + .selected,
-#business:checked + .selected,
-#lifestyle:checked + .selected{
+.categories div > input:checked + .selected {
     background: var(--text-color);
-    color: var(--btn-color-primary)
+    color: var(--btn-color-primary);
+    cursor: default;
 }
 
 .videos-list {
     margin-top:1em;
+    width: 96%;
     /* place-content: center; */
     /* margin-bottom: .5em; */
     display: grid;
-    grid-template-columns:  repeat(3, 1fr);
-    row-gap: 1.5em;
+    grid-template-columns:  repeat(3, minmax(0, 1fr));
+    grid-gap: 1.5em;
     animation-duration: 0.3s;
     animation-name: slidein;
+    /* border: 2px solid red */
   }
   
 .error, .notice{
     /* background: green; */
-    height: 80%;
+    padding-top: 20%;
+    /* height: 80vh; */
     display: flex;
     justify-content: space-around;
     align-items: center;
-    font-size: 1.3em;
+    font-size: 1em;
 }
 
 .error p {
@@ -86,3 +77,8 @@
     display: none;
 }
 
+@media (min-width: 320px) and (max-width: 480px) {
+    .videos-list {
+        grid-template-columns:  repeat(2, minmax(0, 1fr));
+      }
+}

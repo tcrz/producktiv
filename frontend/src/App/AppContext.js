@@ -2,7 +2,7 @@ import React from "react";
 
 export const defaultUser = {
         "_id": "",
-        "username": "Tony",
+        "username": "",
         "videos": [],
         "notes": [],
         "articles": [],

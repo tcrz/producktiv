@@ -3,6 +3,7 @@ import { ImBooks, ImBook, ImFolderPlus, ImExit } from "react-icons/im";
 import { NavLink } from 'react-router-dom'
 import './Sidemenu.css';
 import { AppContext } from '../App/AppContext';
+import { ReactComponent as Logo } from '../logo/producktiv.svg'
 
 
 export const Sidemenu = (props) => {
@@ -26,15 +27,17 @@ export const Sidemenu = (props) => {
   ]
 
   return (
-    <div className="container">
     <div className="sidemenu-container">
       <div className="sidemenu-box">
         <div className="sidemenu">
           <div className="sidemenu-heading">
-            <h1>PRODUCKTIV</h1>
-            <div className="user-details">
+            {/* <h1>PRODUCKTIV</h1> */}
+            {/* <h2>Producktiv</h2> */}
+            <Logo className='logo'/>
+            {/* <img src={logo} style={{width: "90px"}}/> */}
+            {/* <div className="user-details">
               <p style={{color: "white"}}>Welcome, {data.user.username}!</p>
-            </div>
+            </div> */}
           </div>
           <div className="menu-items">
             {
@@ -46,14 +49,13 @@ export const Sidemenu = (props) => {
             })
           }
           </div>
-          <div className="logout">
-          <div className="logout-icon"><ImExit/></div>
-          <p  onClick={() => props.logOut()}>Logout</p>
+          <div className="item-link logout" >
+            <div className="item-icon"><ImExit/></div>
+            <div className="item-text"><p onClick={() => props.logOut()}>Logout</p></div>
+          {/* <p  onClick={() => props.logOut()}>Logout</p> */}
           </div>
         </div>
       </div>
-    </div>
-    <main>{props.children}</main>
     </div>
   )
 }

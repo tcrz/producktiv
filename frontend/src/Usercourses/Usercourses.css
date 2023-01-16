@@ -1,4 +1,5 @@
 .user-courses .video .delete p{
     display: block;
     color: red;
+    cursor: pointer;
 }

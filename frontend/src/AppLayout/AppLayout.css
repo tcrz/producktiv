@@ -1,0 +1,17 @@
+.container {
+    background: var(--background-color);
+    /* display: flex;
+    flex-direction: row; */
+    /* background: red; */
+    min-height: 100vh;
+    /* position: relative */
+}
+
+main {
+    /* background-color: green; */
+    margin-left: 20%;
+    overflow-y: auto;
+    
+}
+
+

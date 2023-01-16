@@ -5,11 +5,11 @@ import LandingPage from '../LandingPage/LandingPage';
 import { Navigate, Routes, Route } from "react-router-dom";
 import { Coursespage } from '../Coursespage/Coursespage';
 import { Usercourses } from '../Usercourses/Usercourses';
-import { Sidemenu } from '../Sidemenu/Sidemenu';
 import { Videopage } from '../Videopage/Videopage';
 import { AppContext, defaultUser } from './AppContext'
 import { Addcourse } from '../Addcourse/Addcourse';
 import {Buffer} from 'buffer';
+import { AppLayout } from '../AppLayout/AppLayout';
 
 
 class App extends React.Component {
@@ -18,7 +18,7 @@ constructor(props){
   this.state = {
     user: defaultUser,
     isLoading: false,
-    errorCode: null
+    statusCode: null
   }
 }
 
@@ -30,8 +30,8 @@ componentDidMount() {
     }
 }
 
-setErrorCode = (code) => {
-  this.setState({errorCode: code})
+setStatusCode = (code) => {
+  this.setState({statusCode: code})
 }
 
 updateUser = (currentUser) => {
@@ -78,7 +78,7 @@ logIn = (email, password) => {
     .then((response) => {
       // console.log(response)
       if (!response.ok) {
-        this.setErrorCode(response.status)
+        this.setStatusCode(response.status)
         throw Error(`${response.status}: ${response.statusText}`)
       }
       return response.json()
@@ -92,7 +92,7 @@ logIn = (email, password) => {
       document.cookie = "auth_key=" + data.user.token + ";" + expires + ";path=/";
       // console.log(data.user)
       localStorage.setItem('user', JSON.stringify(data.user))
-      this.setErrorCode(null)
+      this.setStatusCode(null)
     })
     .catch((error) => {
       this.setState({isLoading: false})
@@ -102,7 +102,7 @@ logIn = (email, password) => {
 }
 
   render() {
-    const {isLoading, errorCode, user} = this.state
+    const {isLoading, statusCode, user} = this.state
     const logIn = this.logIn
     const logOut = this.logOut
     const resetUser = this.resetUser
@@ -111,13 +111,13 @@ logIn = (email, password) => {
         !user.token ? (
         <LandingPageBody>
           <Routes>
-          <Route path="/login" element={<LandingPage errorCode={errorCode} isLoading={isLoading} logIn={logIn}/>}/>
+          <Route path="/login" element={<LandingPage statusCode={statusCode} isLoading={isLoading} logIn={logIn}/>}/>
           <Route path="*" element={<Navigate to="/login" replace/>}/>
           </Routes>
         </LandingPageBody>
         ) : (
           <AppContext.Provider value={{user, resetUser}}>
-            <Sidemenu logOut={logOut}>
+            <AppLayout logOut={logOut}>
               <Routes>
                 <Route path="/videos" element={<Coursespage/>}/>
                 <Route path="/courses" element={<Usercourses/>}/>
@@ -125,7 +125,7 @@ logIn = (email, password) => {
                 <Route path="/add-course" element={<Addcourse/>}/>
                 <Route path="*" element={<Navigate to="/videos" replace/>}/>
               </Routes>
-            </Sidemenu>
+            </AppLayout>
           </AppContext.Provider>
         )
       )

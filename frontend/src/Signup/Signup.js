@@ -1,47 +1,45 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Loader } from '../Loader/Loader'
+import { Form } from './Form'
 import './Signup.css'
 
-export class Signup extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      username: "",
-      email: "",
-      password: "",
-      isLoading: false,
-      statusCode: null
-    }
+export const Signup = (props) => {
+  const [username, setUsername] = useState("")
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [isLoading, setIsLoading] = useState(false)
+  const [statusCode, setStatusCode] = useState(null)
+  const loadingText = "Creating account..."
+
+  const clearSignUpForm = () => {
+    setUsername("")
+    setEmail("")
+    setPassword("")
   }
 
-  clearSignUpForm = () => {
-    this.setState({username: "", email: "", password: "" })
+  const handleChangeUsername = (event) => {
+    setUsername(event.target.value)
   }
 
-  handleChangeUsername = (event) => {
-    this.setState({username: event.target.value})
+  const handleChangeEmail = (event) => {
+    setEmail(event.target.value)
   }
 
-  handleChangeEmail = (event) => {
-    this.setState({email: event.target.value})
+  const handleChangePassword = (event) => {
+    setPassword(event.target.value)
   }
 
-  handleChangePassword = (event) => {
-    this.setState({password: event.target.value})
-  }
-
-  handleSignUpSubmit = (event) => {
+  const handleSignUpSubmit = (event) => {
     event.preventDefault()
-    this.setState({isLoading: true})
-    const {email, password, username} = this.state
-
+    setIsLoading(true)
+    clearSignUpForm()
     fetch('https://producktiv-backend.onrender.com/api/users', {
       method: "POST",
       body: JSON.stringify({username, email, password}),
       headers: {'Content-Type': 'application/json'}
     })
     .then((response) => {
-      this.setState({statusCode: response.status})
+      setStatusCode(response.status)
       console.log(response)
       if (!response.ok) {
         throw Error(`${response.status}: ${response.statusText}`)
@@ -49,64 +47,45 @@ export class Signup extends React.Component {
       return response.json()
     })
     .then((data) => {
-      this.setState({isLoading: false})
-      this.clearSignUpForm()
+      setIsLoading(false)
+      setTimeout(()=>props.toggleForm(), 1200)
     })
     .catch((error)=>{
-      this.setState({isLoading: false})
+      setIsLoading(false)
       console.log(error)
     })
   }
 
-  
-  render () {
-    const {isLoading, statusCode} = this.state
-    const loadingText = "Creating account..."
-    const statusCodeText = () => {
-      if (statusCode === null) {
+  const statusCodeCheck = (code) => {
+      if (code === null) {
         return <p>Create your Productiv account</p>
-      } else if (statusCode === 201){
+      } else if (code === 201){
         return <p style={{color:"green"}}>Account Created! Proceed to log in.</p>
-      } else if (statusCode === 400){
+      } else if (code === 400){
         return <p style={{color:"red"}}>This email is already linked to an account. </p>
-      } else if (statusCode === 401){
+      } else if (code === 401){
         return <p style={{color:"red"}}>Sorry, an error occured! Try again. </p>
       }
     }
+
+  const statusCodeText = statusCodeCheck(statusCode)
+  
     return (
       <>
        { isLoading ? <Loader loadingText={loadingText}/> : (
-      <form onSubmit={this.handleSignUpSubmit}>
-       
-      <div className="signup-box">
-        <div className="signup-heading">
-          <h1>SIGNUP</h1>
-          {statusCodeText()}
-        </div>
-        <div className="signup-details">
-          <div className="username-box">
-            <label><span>Username:</span><br />
-            <input type="text" id="username" placeholder="Tim" value={this.state.username} onChange={this.handleChangeUsername} required/>
-            </label>
-          </div>
-          <div className="email-box">
-            <label><span>Email:</span><br />
-            <input type="email" id="sg-email" placeholder="example@duc.tiv" value={this.state.email} onChange={this.handleChangeEmail} required/>
-            </label>
-          </div>
-          <div className="password-box">
-            <label><span>Password:</span><br />
-            <input type="password" id="sg-password" placeholder="password"  minLength="8" value={this.state.password} onChange={this.handleChangePassword} required/>
-            </label>
-          </div>
-          <div className="submit-btn">
-            <input type="submit" id="sg-submit" value="Sign Up"/>
-          </div>
-        </div>  
-      </div>
+      <form onSubmit={handleSignUpSubmit}>
+        <Form
+          formType="Sign Up"
+          username={username} 
+          email={email} 
+          password={password} 
+          handleChangeUsername={handleChangeUsername}
+          handleChangeEmail={handleChangeEmail}
+          handleChangePassword={handleChangePassword}
+          statusCodeText={statusCodeText}
+        />
       </form> )
       }
       </>
     )
-  }
 }

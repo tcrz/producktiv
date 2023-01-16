@@ -55,10 +55,10 @@
 
 .main-image {
     width: 90%;
-    border: 1px solid var(--text-color);
+    /* border: 1px solid var(--text-color); */
     margin: 0 auto;
     margin-top: 2.4em;
-    box-shadow: 5px 4px 5px rgba(0, 0, 0, 0.15);
+    /* box-shadow: 5px 4px 5px rgba(0, 0, 0, 0.15); */
 }
 
 h3#intro-text {

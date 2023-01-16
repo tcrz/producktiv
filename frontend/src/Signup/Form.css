@@ -1,4 +1,4 @@
-.login-box{
+.form-box{
     margin: 0 auto;
     /* border: 1px solid red; */
     padding:10px;
@@ -13,15 +13,15 @@
     /* overflow:hidden */
 }
 
-.login-box h1 {
+.form-box h1 {
     /* font-size: 2em; */
 }
 
-.login-box p {
+.form-box p {
     font-weight: 500;
 }
 
-.login-heading{
+.form-heading{
     /* text-align: center; */
     /* border: 1px solid black; */
     padding: 0.5em;
@@ -29,7 +29,7 @@
     width: 70%;
 }
 
-.login-details {
+.form-details {
     width: 70%;
     /* border: 1px solid black; */
     display: flex;
@@ -38,7 +38,7 @@
     padding: 0.5em;
 }
 
-.login-details input {
+.form-details input {
     padding: 0.7em;
     margin-top: 0.1em;
     width: 90%;
@@ -49,13 +49,13 @@
     
 }
 
-.login-details input:focus {
+.form-details input:focus {
     outline: none;
     box-shadow: 0 0 0 1px var(--text-color);
 }
 
 
-.login-details input[type="submit"] {
+.form-details input[type="submit"] {
     background: var(--btn-color-primary);
     font-weight: 600;
     border: 0;
@@ -64,32 +64,32 @@
 }
 
 
-.login-details label span {
+.form-details label span {
     font-size: 0.87rem;
     color: var(--text-color)
 }
 
 @media (min-width: 320px) and (max-width: 768px) {
-    .login-box, .signup-box {
+    .form-box, .signup-box {
         width: 100%
     }
 
-    .login-heading, .login-details,
-    .login-details input, .login-details input[type="submit"] {
+    .form-heading, .form-details,
+    .form-details input, .form-details input[type="submit"] {
         width: 100%
     }
 }
 
 @media (min-width: 481px) and (max-width: 1023px) {
-    .login-box {
+    .form-box {
         width: 80%
     }
 
-    .login-details input {
+    .form-details input {
         width: 90%
     }
 
-    .login-details input[type="submit"] {
+    .form-details input[type="submit"] {
         width: 50%
     }
 }

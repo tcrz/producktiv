@@ -2,9 +2,9 @@ import React from 'react';
 import { Login } from '../Login/Login';
 import { Signup } from '../Signup/Signup';
 import './LandingPage.css'
+import img3 from './elearning.png';
 import img1 from './elearning2.jpg';
 import img2 from './elearning3.jpg';
-import img3 from './elearning.jpg';
 import ope from './ope.jpg';
 import samra from './samra.jpg';
 import tony from './tony.jpg';
@@ -19,7 +19,7 @@ export default class LandingPage extends React.Component {
     }
   }
 
-  toggleLoginSignup = () => {
+  toggleForm = () => {
     this.setState({isLoginScreen: !this.state.isLoginScreen})
   }
 
@@ -40,10 +40,10 @@ export default class LandingPage extends React.Component {
           <div className="login-section">
             <div className="login-header">
               <p>{loginMsgText}&nbsp;
-                <button onClick={()=>this.toggleLoginSignup()} className="login-toggle">{loginbtnText}</button>
+                <button onClick={()=>this.toggleForm()} className="login-toggle">{loginbtnText}</button>
               </p>
             </div>
-            {isLoginScreen ? <Login errorCode={this.props.errorCode} isLoading={this.props.isLoading} logIn={this.props.logIn}/> : <Signup/>}
+            {isLoginScreen ? <Login statusCode={this.props.statusCode} isLoading={this.props.isLoading} logIn={this.props.logIn}/> : <Signup toggleForm={this.toggleForm}/>}
           </div>
         </div>
         <div id='info-section'>
