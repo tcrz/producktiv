@@ -101,7 +101,7 @@ export class Addcourse extends React.Component {
       <h1 style={{marginBottom:"0"}}>Add a course</h1>
       <p>Know some useful resources? Share so others can stay as producktiv as you! Please note that only Youtube video urls are currently accepted.</p>
        {isLoading ? <Loader loadingText={"Submitting video..."}/> : <form onSubmit={this.handleCourseSubmit}>
-      <div className="login-box add-course-box">
+      <div className="form-box add-course-box">
         {errorCheck(statusCode)}
         <div className="course-details">
           <div className="video-name-box">
