@@ -1,6 +1,7 @@
 import "./Videocard.css"
 import { Link } from 'react-router-dom';
-import { ImBin } from "react-icons/im";
+import { ImBin, ImUser } from "react-icons/im";
+
 
 
 export const Videocard = (props) => {
@@ -21,7 +22,7 @@ export const Videocard = (props) => {
           <p>{props.description}</p>
           </div>
         <div  className="author">
-          <p>{props.userName}</p>
+          <p><ImUser/> {props.username}</p>
         </div>
       </div>
       </Link>
