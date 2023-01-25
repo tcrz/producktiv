@@ -17,16 +17,10 @@
 }
 
 #full-page h1 {
-    font-size: 2.2em;
+    /* font-size: 2.2em; */
+    
 }
 
-#full-page h3 {
-    font-size: 1.8em;
-}
-
-#full-page h3 {
-    font-size: 1.2em;
-}
 
 #main-section {
     display: flex;
@@ -77,6 +71,10 @@ h3#intro-text {
     text-align: right;
     padding: 2em;
     font-size: .8em
+}
+
+.login-header p {
+    font-size: 1.1em;
 }
 
 .login-header .login-toggle {
@@ -172,7 +170,8 @@ h1#about-title {
     margin-top: 2em;
     margin-bottom: 30px;
     padding: 10px;
-    border-bottom: solid .5px var(--btn-color-primary);;
+    border-bottom: solid .5px var(--btn-color-primary);
+    color: var(--background-color);
 }
 
 #developers {

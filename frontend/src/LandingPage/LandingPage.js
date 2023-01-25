@@ -62,12 +62,10 @@ export default class LandingPage extends React.Component {
           <p className='app-desc'>
             The objective of Producktiv is to bring together people from different fields who would like to
             collaborate and share ideas with other people. This helps you as a tutor, to share useful resources as well as get your content out
-            there and as a student, to learn various skills without any cost to you.
-            This project was built by a collaboration of young and bright minds from the ALX-Softtware Engineering program
-            as a final protfolio project.<br/><br/>
+            there and as a student, to learn various skills without any cost to you.<br/><br/>
             <a href='https://github.com/Timi-T/producktiv/' target={'blank'}><BsGithub /> Link to the Project Repository</a>
           </p>
-          <h2 id='team-info'>Meet the Team!</h2>
+          <h1 id='team-info'>Meet the Team!</h1>
           <div id='developers'>
             <div className='person'>
               <div className='person-desc'>

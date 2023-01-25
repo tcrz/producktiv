@@ -13,10 +13,6 @@
     /* overflow:hidden */
 }
 
-.form-box h1 {
-    /* font-size: 2em; */
-}
-
 .form-box p {
     font-weight: 500;
 }
@@ -45,7 +41,7 @@
     border: 1px solid #ccc;
     border-radius: 6px;
     transition: .3s ease-in-out;
-    font-size: .8em;
+    font-size: 1em;
     
 }
 

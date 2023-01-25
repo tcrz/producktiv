@@ -22,7 +22,7 @@
 }
 
 .course-details label span {
-    font-size: 0.8em
+    font-size: 1em
 }
 
 .course-details input, .category-box select {
@@ -32,7 +32,7 @@
     border: 1px solid var(--text-color);
     border-radius: 6px;
     transition: .3s ease-in-out;
-    font-size: .8em;
+    font-size: 1em;
     text-align: left;
     border: 1px solid #ccc;
     color: var(--text-color)

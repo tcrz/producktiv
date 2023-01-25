@@ -8,7 +8,8 @@
 .back-to-courses {
     color: var(--text-color);
     padding: .7em;
-    float:right
+    float:right;
+    text-decoration: underline
 }
 
 .video-display iframe {
@@ -38,6 +39,6 @@
 }
 
 .description h1 {
-    font-size: 1.33em;
+    /* font-size: 1.33em; */
     margin: 0
 }

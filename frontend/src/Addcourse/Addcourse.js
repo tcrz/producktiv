@@ -86,7 +86,7 @@ export class Addcourse extends React.Component {
     const errorCheck = (statusCode) => {
       if (statusCode !== null) {
         if (statusCode === 201) {
-          return <p style={{color:"green"}}><ImCheckmark/>&nbsp;&nbsp;Video has successfully been added.<br/>Take a look here:&nbsp;<NavLink to="/courses" style={{color:"var(--text-color)"}}>My courses</NavLink></p>
+          return <p style={{color:"green"}}><ImCheckmark/>&nbsp;&nbsp;Video has successfully been added.<br/>Take a look here:&nbsp;<NavLink to="/courses" style={{color:"var(--text-color)", textDecoration:"underline"}}>My courses</NavLink></p>
         } else if (statusCode === 404) {
           return <p style={{color:"red"}}>Youtube URL is not a valid video.</p>
         } else if (statusCode === 300) {

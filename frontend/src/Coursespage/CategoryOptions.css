@@ -1,0 +1,30 @@
+.categories label {
+    display:flex;
+    align-items: center;
+    gap: .2em;
+    border: 1px solid var(--text-color);
+    padding: .2em .6em;
+    border-radius: 1em;
+    text-decoration: none;
+    font-weight: 400;
+    color: var(--text-color);
+    font-size: .7em
+}
+
+.categories label:hover {
+    cursor:pointer
+}
+
+.categories label {
+    font-size: .8em;
+}
+
+.categories div > input {
+    display: none
+}
+
+.categories div > input:checked + .selected {
+    background: var(--text-color);
+    color: var(--btn-color-primary);
+    cursor: default;
+}

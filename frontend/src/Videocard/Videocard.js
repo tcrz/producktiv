@@ -1,35 +1,40 @@
-import "./Videocard.css"
-import { Link } from 'react-router-dom';
+import "./Videocard.css";
+import { Link } from "react-router-dom";
 import { ImBin, ImUser } from "react-icons/im";
-
-
+import VideoDeletionModal from "./VideoDeletionModal";
+import { useLocation } from "react-router-dom";
 
 export const Videocard = (props) => {
-  const data = props.selectVideo(props.id)
-  const thumbnail = props.videoThumbnail.split("hqdefault.jpg")[0] + "maxresdefault.jpg"
+  const data = props.selectVideo(props.id);
+  const location = useLocation();
+  const thumbnail =
+    props.videoThumbnail.split("hqdefault.jpg")[0] + "maxresdefault.jpg";
   return (
-    <article  className="video">
-      <Link to="/videoplay" state={{videoData: data}}
-     className="videoplay">
-      <div style={{overflow:"hidden"}}>
-      <img className="thumbnail" src={thumbnail} alt="video-thumbnail"/>
-      </div>
-      <div  className="details">
-        <div  className="video-name">
-          <h4>{props.videoName}</h4>
+    <article className="video">
+      <Link to="/videoplay" state={{ videoData: data }} className="videoplay">
+        <div style={{ overflow: "hidden" }}>
+          <img className="thumbnail" src={thumbnail} alt="video-thumbnail" />
         </div>
-        <div  className="description">
-          <p>{props.description}</p>
+        <div className="details">
+          <div className="video-name">
+            <h4>{props.videoName}</h4>
           </div>
-        <div  className="author">
-          <p><ImUser/> {props.username}</p>
+          <div className="description">
+            <p>{props.description}</p>
+          </div>
+          <div className="author">
+            {location.pathname === "/videos" && <p><ImUser/>{props.username}</p> }
+          </div>
         </div>
-      </div>
       </Link>
-      <div  className="delete">
-          <p onClick={() => props.deleteVideo(props.id)}><ImBin/>delete</p>
+      <div className="delete">
+        <VideoDeletionModal
+          id={props.id}
+          deleteVideo={props.deleteVideo}
+          trigger={ <p><ImBin />delete</p> }
+        />
+       
       </div>
     </article>
-    
-  )
-}
+  );
+};

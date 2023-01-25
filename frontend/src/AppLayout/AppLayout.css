@@ -11,8 +11,11 @@ main {
     /* background-color: green; */
     margin-left: 20%;
     overflow-y: auto;
-   
-    
 }
 
+@media (min-width: 320px) and (max-width: 768px) {
+    main {
+        margin-left: 15%;
+    }
+}
 

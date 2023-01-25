@@ -94,14 +94,14 @@ export const Coursespage = () => {
           </select> */}
         </div>
         {error && (
-          <div className="error">
+          <div className="notice-box error">
             <p>Sorry, an error occured while loading videos. Try again.</p>
           </div>
         )}
         {isLoading ? (
           <Loader loadingText={"Loading content..."} />
         ) : !error && videos.length === 0 ? (
-          <div className="notice">
+          <div className="notice-box notice">
             <p>There are no videos in this category. Add one?</p>
           </div>
         ) : (
@@ -117,7 +117,7 @@ export const Coursespage = () => {
                     embedVideo={item.embedVideo}
                     description={item.description}
                     videoThumbnail={item.videoThumbnail}
-                    userName={`By: ${item.userName}`}
+                    username={item.userName}
                   />
                 );
               })}
