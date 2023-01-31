@@ -1,5 +1,5 @@
 import React from "react";
-import "./Form.css"
+import "./FormUI.css"
 
 export const FormUI = (props) => {
   return (
