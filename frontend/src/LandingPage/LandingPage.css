@@ -77,7 +77,7 @@ h3#intro-text {
     font-size: 1.1em;
 }
 
-.login-header .login-toggle {
+.login-header .login-toggle, .test-run {
     text-decoration: underline;
     border: none;
     background: none;

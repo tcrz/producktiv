@@ -57,9 +57,6 @@ export const FormUI = (props) => {
         <div className="submit-btn">
           <input type="submit" id="submit" value={props.formType} />
         </div>
-        {props.formType === "Log In" && <div className="submit-btn">
-          <input onClick={()=>props.testRunLogin()} type="button" id="testrun-btn" value={"Test run"}/>
-        </div>}
       </div>
     </div>
   );
