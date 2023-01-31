@@ -5,6 +5,8 @@ import { Videocard } from "../Videocard/Videocard";
 import { Loader } from "../Loader/Loader";
 import { CategoryOptions } from "./CategoryOptions";
 
+import { SectionHeading } from "../SectionHeading/SectionHeading";
+
 export const Coursespage = () => {
   const { resetUser } = React.useContext(AppContext);
   const [videos, setVideos] = useState([]);
@@ -78,7 +80,7 @@ export const Coursespage = () => {
   return (
     <>
       <div className="all-courses">
-        <h1>Explore</h1>
+        <SectionHeading title='Explore'/>
         <div className="categories">
           <CategoryOptions setSelectedCategory={setSelectedCategory} />
           {/* <div className="category-box"> */}

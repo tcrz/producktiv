@@ -5,11 +5,8 @@ import './LandingPage.css'
 import img3 from './elearning.png';
 import img1 from './elearning2.jpg';
 import img2 from './elearning3.jpg';
-import ope from './ope.jpg';
-import samra from './samra.jpg';
-import tony from './tony.jpg';
-import blank from './blank.jpg';
 import { BsGithub, BsLinkedin, BsTwitter } from "react-icons/bs"
+import {devs} from './devs';
 
 export default class LandingPage extends React.Component {
   constructor(props) {
@@ -63,72 +60,32 @@ export default class LandingPage extends React.Component {
             The objective of Producktiv is to bring together people from different fields who would like to
             collaborate and share ideas with other people. This helps you as a tutor, to share useful resources as well as get your content out
             there and as a student, to learn various skills without any cost to you.<br/><br/>
-            <a href='https://github.com/Timi-T/producktiv/' target={'blank'}><BsGithub /> Link to the Project Repository</a>
+            <a href='https://github.com/Timi-T/producktiv/' target='blank'><BsGithub /> Link to the Project Repository</a>
           </p>
           <h1 id='team-info'>Meet the Team!</h1>
           <div id='developers'>
-            <div className='person'>
-              <div className='person-desc'>
-                <img className='person-image' id='img2' src={ope} alt="img" />
-                <h4 className='person-name'>Opeyemi</h4>
-              </div>
-              <p className='person-text'>
-                  Opeyemi Software Engineer based in Lagos, Nigeria. He is responsible for parts of the backend, frontend and devops for this project.
-              </p>
-              <div className='contacts'>
-                <div className='icon'><a a href='https://github.com/Timi-T' target={'blank'}><BsGithub /></a></div>
-                <div className='icon'><a a href='https://www.linkedin.com/in/opeyemi-ogunbode-33441814a/' target={'blank'}><BsLinkedin /></a></div>
-                <div className='icon'><a a href='https://twitter.com/roadsidedev?t=bXZWtAMHdw_wjpzRrbC7Yw&s=31' target={'blank'}><BsTwitter /></a></div>
-              </div>
-            </div>
-            <div className='person'>
-              <div className='person-desc'>
-                <img className='person-image' id='img2' src={samra} alt="img" />
-                <h4 className='person-name'>Samra</h4>
-              </div>
-              <p className='person-text'>
-                  Samra is a Software Engineer based in Addis Ababa, Ethiopia. She is responsible for the backend of this project.
-              </p>
-              <div className='contacts'>
-                <div className='icon'><a a href='https://github.com/samie-ya' target={'blank'}><BsGithub /></a></div>
-                <div className='icon'><a a href='https://www.linkedin.com/in/samra-solomon-24b745208' target={'blank'}><BsLinkedin /></a></div>
-                <div className='icon'><a a href='https://twitter.com/Samie67514029' target={'blank'}><BsTwitter /></a></div>
-              </div>
-            </div>
-            <div className='person'>
-              <div className='person-desc'>
-                <img className='person-image' id='img2' src={tony} alt="img" />
-                <h4 className='person-name'>Tony</h4>
-              </div>
-              <p className='person-text'>
-                  Tony is a Software Engineer based in Accra, Ghana. He is responsible for the frontend of this project.
-              </p>
-              <div className='contacts'>
-                <div className='icon'><a href='https://github.com/tcrz' target={'blank'}><BsGithub /></a></div>
-                <div className='icon'><a href='https://www.linkedin.com/in/tony-baidoo' target={'blank'}><BsLinkedin /></a></div>
-                <div className='icon'><a href='https://twitter.com/iam_tonnie' target={'blank'}><BsTwitter /></a></div>
-              </div>
-            </div>
-            <div className='person'>
-              <div className='person-desc'>
-                <img className='person-image' id='img2' src={blank} alt="img" />
-                <h4 className='person-name'>Rihana</h4>
-              </div>
-              <p className='person-text'>
-                Rihana is a Software Engineer based in X. She is responsible for the backend of this project.
-              </p>
-              <div className='contacts'>
-                <div className='icon'><a a href='https://github.com/Timi-T' target={'blank'}><BsGithub /></a></div>
-                <div className='icon'><a a href='https://www.linkedin.com/in/opeyemi-ogunbode-33441814a/' target={'blank'}><BsLinkedin /></a></div>
-                <div className='icon'><a a href='https://twitter.com/roadsidedev?t=bXZWtAMHdw_wjpzRrbC7Yw&s=31' target={'blank'}><BsTwitter /></a></div>
-              </div>
-            </div>
+            {devs.map(dev => {
+              return (
+                <div className='person'>
+                  <div className='person-desc'>
+                    <img className='person-image' src={dev.photo} alt={dev.name} />
+                    <h4 className='person-name'>{dev.name}</h4>
+                  </div>
+                  <p className='person-text'>
+                      {dev.desc}
+                  </p>
+                  <div className='contacts'>
+                    <div className='icon'><a a href={dev.info.github} target='blank'><BsGithub /></a></div>
+                    <div className='icon'><a a href={dev.info.linkedin} target={'blank'}><BsLinkedin /></a></div>
+                    <div className='icon'><a a href={dev.info.twitter} target={'blank'}><BsTwitter /></a></div>
+                  </div>
+                </div>
+              )
+            })}
+            
           </div>
         </div>
       </div>
     )
   }
 }
-
-//<h2 className='landing-text'>Get producktiv now!</h2>
-//<img className='image' id='img2' src={img2}/>

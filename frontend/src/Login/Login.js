@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import { Loader } from '../Loader/Loader'
-import { Form } from '../Signup/Form'
+import { FormUI } from '../FormUI/FormUI'
+
+const testEmail = "producktivtestrun@gmail.com"
+const testPassword = "producktivtestrun"
 
 export const Login = (props) => {
   const [email, setEmail] = useState("")
@@ -18,6 +21,10 @@ export const Login = (props) => {
   const handleLoginSubmit = (event) => {
     event.preventDefault()
     props.logIn(email, password)
+  }
+
+  const testRunLogin = () => {
+    props.logIn(testEmail, testPassword)
   }
   
   const statusCodeCheck = (code) => {
@@ -37,13 +44,14 @@ export const Login = (props) => {
     return (
       (props.isLoading ? <Loader loadingText={loadingText}/> :
       <form onSubmit={handleLoginSubmit}>
-         <Form
+         <FormUI
           formType="Log In"
           email={email} 
           password={password}
           handleChangeEmail={handleChangeEmail}
           handleChangePassword={handleChangePassword}
           statusCodeText={statusCodeText}
+          testRunLogin = {testRunLogin}
         />
       </form>)
     )

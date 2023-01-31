@@ -50,8 +50,12 @@
     box-shadow: 0 0 0 1px var(--text-color);
 }
 
+.form-details label span {
+    font-size: 0.87rem;
+    color: var(--text-color)
+}
 
-.form-details input[type="submit"] {
+.form-details input[type="submit"], .form-details input[type="button"] {
     background: var(--btn-color-primary);
     font-weight: 600;
     border: 0;
@@ -59,10 +63,14 @@
     color: var(--text-color)
 }
 
+.form-details input[type="button"] {
+    outline: none;
+    cursor: pointer;
+}
 
-.form-details label span {
-    font-size: 0.87rem;
-    color: var(--text-color)
+
+.form-details input[type="button"] {
+
 }
 
 @media (min-width: 320px) and (max-width: 768px) {

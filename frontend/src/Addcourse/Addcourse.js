@@ -4,6 +4,7 @@ import './Addcourse.css'
 import { ImCheckmark } from "react-icons/im";
 import { Loader } from '../Loader/Loader';
 import { NavLink } from 'react-router-dom'
+import { SectionHeading } from '../SectionHeading/SectionHeading';
 
 
 export class Addcourse extends React.Component {
@@ -83,10 +84,10 @@ export class Addcourse extends React.Component {
 
   render() {
     const {isLoading, statusCode} = this.state
-    const errorCheck = (statusCode) => {
+    const statusCodeCheck = (statusCode) => {
       if (statusCode !== null) {
         if (statusCode === 201) {
-          return <p style={{color:"green"}}><ImCheckmark/>&nbsp;&nbsp;Video has successfully been added.<br/>Take a look here:&nbsp;<NavLink to="/courses" style={{color:"var(--text-color)", textDecoration:"underline"}}>My courses</NavLink></p>
+          return <p style={{color:"green"}}><ImCheckmark/>&nbsp;&nbsp;Video has successfully been added. Take a look here:&nbsp;<NavLink to="/courses" style={{color:"var(--text-color)", textDecoration:"underline"}}>My courses</NavLink></p>
         } else if (statusCode === 404) {
           return <p style={{color:"red"}}>Youtube URL is not a valid video.</p>
         } else if (statusCode === 300) {
@@ -97,12 +98,12 @@ export class Addcourse extends React.Component {
       }
     }
     return (
-      <div className="all-courses submission-form">
-      <h1 style={{marginBottom:"0"}}>Add a course</h1>
+      <div className="all-courses add-courses">
+      <SectionHeading title="Add a course" />
       <p>Know some useful resources? Share so others can stay as producktiv as you! Please note that only Youtube video urls are currently accepted.</p>
        {isLoading ? <Loader loadingText={"Submitting video..."}/> : <form onSubmit={this.handleCourseSubmit}>
       <div className="form-box add-course-box">
-        {errorCheck(statusCode)}
+        {statusCodeCheck(statusCode)}
         <div className="course-details">
           <div className="video-name-box">
             <label><span>Video Name:</span><br />

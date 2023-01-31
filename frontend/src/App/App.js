@@ -44,6 +44,7 @@ resetUser = () => {
 }
 
 logOut = () => {
+    this.setState({isLoading: true})
     fetch(`https://producktiv-backend.onrender.com/api/logout?${document.cookie}`, {
       method: "DELETE",
       credentials: 'include',
@@ -56,10 +57,12 @@ logOut = () => {
       return response.json()
       })
     .then((data) => {
+      this.setState({isLoading: false})
       this.resetUser()
       document.cookie = ''
     })
     .catch((error) => {
+      this.setState({isLoading: false})
       console.log(error)
     })
 }
@@ -117,7 +120,7 @@ logIn = (email, password) => {
         </LandingPageBody>
         ) : (
           <AppContext.Provider value={{user, resetUser}}>
-            <AppLayout logOut={logOut}>
+            <AppLayout logOut={logOut} isLoading={isLoading}>
               <Routes>
                 <Route path="/videos" element={<Coursespage/>}/>
                 <Route path="/courses" element={<Usercourses/>}/>

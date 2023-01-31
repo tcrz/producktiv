@@ -7,9 +7,10 @@
 }
 
 .all-courses h1 {
-    font-size: 1.5em;
+    /* font-size: 1.5em; */
     /* border: 1px solid red; */
-    margin-bottom: 1em;
+    margin-bottom: .5em;
+    padding-right: .2em;
 }
 
 .categories {
@@ -32,7 +33,13 @@
     animation-name: slidein;
     /* border: 2px solid red */
   }
-  
+
+.notice-box {
+    width: 80%;
+    height: 8em;
+    margin: 15% auto;
+}
+
 .error, .notice{
     /* background: green; */
     /* padding-top: 20%; */

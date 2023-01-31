@@ -3,6 +3,7 @@ import { Videocard } from "../Videocard/Videocard";
 import React, { useState, useEffect } from "react";
 import { Loader } from "../Loader/Loader";
 import "./Usercourses.css";
+import { SectionHeading } from "../SectionHeading/SectionHeading";
 
 export const Usercourses = () => {
   const { resetUser } = React.useContext(AppContext);
@@ -69,7 +70,7 @@ export const Usercourses = () => {
   return (
     <>
       <div className="all-courses user-courses">
-        <h1 style={{ marginBottom: ".2em" }}>My Courses</h1>
+        <SectionHeading title="My Courses" />
         {isLoading && <Loader loadingText={"Loading submitted courses..."} />}
         {!isLoading && (
           <>

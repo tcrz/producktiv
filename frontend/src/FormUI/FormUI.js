@@ -1,7 +1,7 @@
 import React from "react";
 import "./Form.css"
 
-export const Form = (props) => {
+export const FormUI = (props) => {
   return (
     <div className="form-box">
       <div className="form-heading">
@@ -57,6 +57,9 @@ export const Form = (props) => {
         <div className="submit-btn">
           <input type="submit" id="submit" value={props.formType} />
         </div>
+        {props.formType === "Log In" && <div className="submit-btn">
+          <input onClick={()=>props.testRunLogin()} type="button" id="testrun-btn" value={"Test run"}/>
+        </div>}
       </div>
     </div>
   );

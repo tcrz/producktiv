@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Loader } from '../Loader/Loader'
-import { Form } from './Form'
-import './Signup.css'
+import { FormUI } from '../FormUI/FormUI'
 
 export const Signup = (props) => {
   const [username, setUsername] = useState("")
@@ -74,7 +73,7 @@ export const Signup = (props) => {
       <>
        { isLoading ? <Loader loadingText={loadingText}/> : (
       <form onSubmit={handleSignUpSubmit}>
-        <Form
+        <FormUI
           formType="Sign Up"
           username={username} 
           email={email} 

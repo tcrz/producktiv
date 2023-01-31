@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Button, Header, Modal } from "semantic-ui-react";
-import ModalWindow from "../ModalWindow/ModalWindow";
+import ModalWindow from "./ModalWindow";
 
-export default function VideoDeletionModal(props) {
+export default function ConfirmationModal(props) {
   const [open, setOpen] = useState(false);
-  const confirmDeletion = () => {
-    props.deleteVideo(props.id);
+  const triggerAction = () => {
+    props.action();
     setOpen(false);
   };
   return (
@@ -15,15 +15,15 @@ export default function VideoDeletionModal(props) {
       setOpen={setOpen}
       open={open}
     >
-      <Header as="h3" content="Delete Video" />
+      <Header as="h3" content={props.content} />
       <Modal.Content>
-        <p>Are you sure you would like to delete this video?</p>
+        <p>{props.message}</p>
       </Modal.Content>
       <Modal.Actions>
         <Button color="grey" onClick={() => setOpen(false)}>
           No
         </Button>
-        <Button color="red" onClick={confirmDeletion}>
+        <Button color="red" onClick={triggerAction}>
           Yes
         </Button>
       </Modal.Actions>

@@ -1,8 +1,8 @@
 import "./Videocard.css";
 import { Link } from "react-router-dom";
 import { ImBin, ImUser } from "react-icons/im";
-import VideoDeletionModal from "./VideoDeletionModal";
 import { useLocation } from "react-router-dom";
+import { Modal } from "semantic-ui-react";
 
 export const Videocard = (props) => {
   const data = props.selectVideo(props.id);
@@ -23,15 +23,17 @@ export const Videocard = (props) => {
             <p>{props.description}</p>
           </div>
           <div className="author">
-            {location.pathname === "/videos" && <p><ImUser/>{props.username}</p> }
+            {location.pathname === "/videos" && <p><ImUser/>&nbsp;{props.username}</p> }
           </div>
         </div>
       </Link>
       <div className="delete">
-        <VideoDeletionModal
-          id={props.id}
-          deleteVideo={props.deleteVideo}
+        <Modal
+          size="tiny"
+          actions={["No", {key: "yes", content: "Yes", negative: true, onClick:()=>props.deleteVideo(props.id)}]}
           trigger={ <p><ImBin />delete</p> }
+          header="Delete Video"
+          content="Are you sure you would like to delete this video?"
         />
        
       </div>
