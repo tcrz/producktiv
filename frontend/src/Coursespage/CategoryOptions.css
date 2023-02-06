@@ -8,15 +8,11 @@
     text-decoration: none;
     font-weight: 400;
     color: var(--text-color);
-    font-size: .7em
+    font-size: .8em
 }
 
 .categories label:hover {
     cursor:pointer
-}
-
-.categories label {
-    font-size: .8em;
 }
 
 .categories div > input {
@@ -27,4 +23,12 @@
     background: var(--text-color);
     color: var(--btn-color-primary);
     cursor: default;
+}
+
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .categories label {
+        font-size: .65em;
+        padding: 0 .4em
+    }
 }

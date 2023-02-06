@@ -13,7 +13,6 @@ export const Coursespage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState("All");
-  // console.log(selectedCategory)
 
   const getVideos = (resource) => {
     const controller = new AbortController();
@@ -83,17 +82,6 @@ export const Coursespage = () => {
         <SectionHeading title='Explore'/>
         <div className="categories">
           <CategoryOptions setSelectedCategory={setSelectedCategory} />
-          {/* <div className="category-box"> */}
-          {/* <select name="category-options" id="category">
-            <option value="All categories">All categories</option>
-            <option value="">Please choose a category</option>
-            <option value="Art">
-              <p>Art</p>
-            </option>
-            <option value="Business">Business</option>
-            <option value="Lifestyle">Lifestyle</option>
-            <option value="Programming">Programming</option>
-          </select> */}
         </div>
         {error && (
           <div className="notice-box error">

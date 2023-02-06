@@ -3,19 +3,12 @@
     padding: 0;
     margin-top: 1.5em;
     display: block;
+    /* background-color: red; */
 }
 
-.submission-form{
-    /* padding-top: 1em */
-}
-
-.submission-form h1, .submission-form p  {
-    /* text-align: center; */
-    /* border: 1px solid red */
-}
 
 .course-details {
-    width: 75%;
+    width: 85%;
     /* border: 1px solid black; */
     display: flex;
     flex-direction: column;
@@ -67,4 +60,13 @@
 .course-details input:focus, textarea:focus,  .category-box select:focus {
     outline: none;
     box-shadow: 0 0 0 1px var(--text-color);
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+    .add-course-box {
+        width: 100%;
+    }
+    .course-details {
+        width: 100%;
+    }
 }

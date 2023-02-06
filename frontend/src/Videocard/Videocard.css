@@ -80,6 +80,7 @@
   .author {
     /* background-color: var(--text-color); */
   }
+
   .author p, .delete p {
     font-weight: 400;
     font-size:.75em;
@@ -90,3 +91,10 @@
     text-decoration: underline
   }
   
+
+  @media (min-width: 320px) and (max-width: 480px) {
+    .description {
+      height: 30px;
+    }
+}
+

@@ -122,11 +122,11 @@ logIn = (email, password) => {
           <AppContext.Provider value={{user, resetUser}}>
             <AppLayout logOut={logOut} isLoading={isLoading}>
               <Routes>
+                <Route path="*" element={<Navigate to="/videos" replace/>}/>
                 <Route path="/videos" element={<Coursespage/>}/>
                 <Route path="/courses" element={<Usercourses/>}/>
                 <Route path="/videoplay" element={<Videopage/>}/>
                 <Route path="/add-course" element={<Addcourse/>}/>
-                <Route path="*" element={<Navigate to="/videos" replace/>}/>
               </Routes>
             </AppLayout>
           </AppContext.Provider>

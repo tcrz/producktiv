@@ -31,14 +31,14 @@ export const Videopage = () => {
           </NavLink>
           <div className="all-courses video-display">
             <SectionHeading title={videoData.videoName} />
-            <iframe
-              width="560"
-              height="315"
-              src={videoData.embedVideo}
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen=""
-            ></iframe>
+            <div className="video-player">
+              <iframe
+                src={videoData.embedVideo}
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen=""
+              ></iframe>
+            </div>
             <div className="video-details">
               <div className="video-stats">
                 <p>
